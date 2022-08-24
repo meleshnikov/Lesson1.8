@@ -3,7 +3,8 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         //task1();
-        task2();
+        //task2();
+        task3();
     }
 
     public static void task1() {
@@ -14,11 +15,19 @@ public class Main {
     }
 
     public static void task2() {
+        System.out.println("Task 2");
         printClientOs(0, 2001);
         printClientOs(0, 2024);
         printClientOs(1, 2005);
         printClientOs(1, 2034);
         printClientOs(5, 2022);
+    }
+
+    public static void task3() {
+        System.out.println("Task 3");
+        for (int i = 5; i < 1000; i += 5) {
+            System.out.println(i + " км - потребуется дней " + getDeliveryDays(i));
+        }
     }
 
     public static void printYearIsLeap(int year) {
@@ -46,6 +55,10 @@ public class Main {
                 return;
         }
         System.out.printf("Установите %sверсию приложения для %s по ссылке\n", liteVersion, os);
+    }
+
+    public static int getDeliveryDays(int deliveryDistance) {
+        return (int) Math.ceil((deliveryDistance - 20.0) / 40.0) + 1;
     }
 
 }
