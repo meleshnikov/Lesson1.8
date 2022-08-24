@@ -7,7 +7,8 @@ public class Main {
         //task2();
         //task3();
         //task4();
-        task5();
+        //task5();
+        task6();
 
     }
 
@@ -45,6 +46,13 @@ public class Main {
         System.out.println(Arrays.toString(array));
         reverseArray(array);
         System.out.println(Arrays.toString(array));
+    }
+
+    public static void task6() {
+        System.out.println("Task 6");
+        int daysInMonth = 30;
+        int[] costsPerDay = generateRandomArray(daysInMonth);
+        System.out.printf("Средняя сумма трат за месяц составила %.1f рублей\n", getAverage(costsPerDay));
     }
 
     public static void printYearIsLeap(int year) {
@@ -110,6 +118,27 @@ public class Main {
             arr[i] = arr[j];
             arr[j] = temp;
         }
+    }
+
+    public static double getAverage(int[] costsPerDay) {
+        return (double) getSum(costsPerDay) / (double) costsPerDay.length;
+    }
+
+    public static int getSum(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    public static int[] generateRandomArray(int days) {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[days];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
     }
 
 }
