@@ -3,24 +3,23 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        //task1();
-        //task2();
-        //task3();
-        //task4();
-        //task5();
+        task1();
+        task2();
+        task3();
+        task4();
+        task5();
         task6();
-
     }
 
     public static void task1() {
         System.out.println("Task1");
-        for (int i = 0; i < 3000; i++) {
+        for (int i = 1800; i < 2100; i++) {
             printYearIsLeap(i);
         }
     }
 
     public static void task2() {
-        System.out.println("Task 2");
+        System.out.println("\nTask 2");
         printClientOs(0, 2001);
         printClientOs(0, 2024);
         printClientOs(1, 2005);
@@ -29,19 +28,20 @@ public class Main {
     }
 
     public static void task3() {
-        System.out.println("Task 3");
-        for (int i = 5; i < 1000; i += 5) {
+        System.out.println("\nTask 3");
+        for (int i = 5; i < 300; i += 5) {
             System.out.println(i + " км - потребуется дней " + getDeliveryDays(i));
         }
     }
 
     public static void task4() {
+        System.out.println("\nTask 4");
         searchDuplicatesSeqChars("abcdeffghvv");
         searchDuplicatesChars("ahjhjhfjgfa");
     }
 
     public static void task5() {
-        System.out.println("Task 5");
+        System.out.println("\nTask 5");
         int[] array = {1, 2, 3, 4, 5};
         System.out.println(Arrays.toString(array));
         reverseArray(array);
@@ -49,7 +49,7 @@ public class Main {
     }
 
     public static void task6() {
-        System.out.println("Task 6");
+        System.out.println("\nTask 6");
         int daysInMonth = 30;
         int[] costsPerDay = generateRandomArray(daysInMonth);
         System.out.printf("Средняя сумма трат за месяц составила %.1f рублей\n", getAverage(costsPerDay));
@@ -67,7 +67,7 @@ public class Main {
     public static void printClientOs(int clientOS, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
         String liteVersion = (clientDeviceYear < currentYear) ? "облегченную " : "";
-        String os = "";
+        String os;
         switch (clientOS) {
             case 0:
                 os = "iOS";
@@ -126,8 +126,8 @@ public class Main {
 
     public static int getSum(int[] arr) {
         int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+        for (int i : arr) {
+            sum += i;
         }
         return sum;
     }
