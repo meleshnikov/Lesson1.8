@@ -4,7 +4,9 @@ public class Main {
     public static void main(String[] args) {
         //task1();
         //task2();
-        task3();
+        //task3();
+        task4();
+
     }
 
     public static void task1() {
@@ -28,6 +30,11 @@ public class Main {
         for (int i = 5; i < 1000; i += 5) {
             System.out.println(i + " км - потребуется дней " + getDeliveryDays(i));
         }
+    }
+
+    public static void task4() {
+        searchDuplicatesSeqChars("abcdeffghvv");
+        searchDuplicatesChars("ahjhjhfjgfa");
     }
 
     public static void printYearIsLeap(int year) {
@@ -59,6 +66,31 @@ public class Main {
 
     public static int getDeliveryDays(int deliveryDistance) {
         return (int) Math.ceil((deliveryDistance - 20.0) / 40.0) + 1;
+    }
+
+    //Работает для отсортированной строки
+    public static void searchDuplicatesSeqChars(String str) {
+        StringBuilder s = new StringBuilder(str);
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (s.charAt(i) == s.charAt(i + 1)) {
+                System.out.printf("В строке: %s\n%c - повторяется\n", str, s.charAt(i));
+                return;
+            }
+        }
+        System.out.printf("В строке: %s\nнет дублей\n", str);
+    }
+    //должно работать для неотсортированной строки
+    public static void searchDuplicatesChars(String str) {
+        StringBuilder s = new StringBuilder(str);
+        int[] charsCount = new int[128];
+        for (int i = 0; i < s.length(); i++) {
+            if (charsCount[s.charAt(i)] > 0) {
+                System.out.printf("В строке: %s\n%c - повторяется\n", str, s.charAt(i));
+                return;
+            }
+            charsCount[s.charAt(i)]++;
+        }
+        System.out.printf("В строке: %s\nнет дублей\n", str);
     }
 
 }
