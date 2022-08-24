@@ -1,11 +1,13 @@
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
         //task1();
         //task2();
         //task3();
-        task4();
+        //task4();
+        task5();
 
     }
 
@@ -35,6 +37,14 @@ public class Main {
     public static void task4() {
         searchDuplicatesSeqChars("abcdeffghvv");
         searchDuplicatesChars("ahjhjhfjgfa");
+    }
+
+    public static void task5() {
+        System.out.println("Task 5");
+        int[] array = {1, 2, 3, 4, 5};
+        System.out.println(Arrays.toString(array));
+        reverseArray(array);
+        System.out.println(Arrays.toString(array));
     }
 
     public static void printYearIsLeap(int year) {
@@ -79,6 +89,7 @@ public class Main {
         }
         System.out.printf("В строке: %s\nнет дублей\n", str);
     }
+
     //должно работать для неотсортированной строки
     public static void searchDuplicatesChars(String str) {
         StringBuilder s = new StringBuilder(str);
@@ -91,6 +102,14 @@ public class Main {
             charsCount[s.charAt(i)]++;
         }
         System.out.printf("В строке: %s\nнет дублей\n", str);
+    }
+
+    public static void reverseArray(int[] arr) {
+        for (int i = 0, j = arr.length - 1; i < j; i++, j--) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
     }
 
 }
